@@ -17,6 +17,6 @@ listRepos() {
 	repoURL=$fpart$GitHubUserName$spart;
 
 	curl $repoURL 2> /dev/null | \
-		awk -F"\"/|\"" '$0 ~ /itemprop=\"name codeRepository\" >/ {print $2}'
+		awk -F"/|\"" '$0 ~ /itemprop=\"name codeRepository\" >/ {print $4}'
 }
 
