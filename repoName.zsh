@@ -9,6 +9,9 @@
 # $0 match against the whole line the regex between foward slashes
 # 		itemprop=\"name codeRepository\" >
 # print the second field of those matched
+#
+#
+# TODO pass githib name by arg
 listRepos() {
 	echo "Enter your GitHub URL: "
 	read GitHubUserName;
