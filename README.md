@@ -13,7 +13,7 @@ ASIDE: Using the profile page has the same data and its URL is
 
 In the code snippet below. I ask the user for their username
 
-```
+```shell
 		echo "Enter your GitHub URL: "
 		read GitHubUserName;
 ```
@@ -47,7 +47,7 @@ Parsing HTML with awk
 		line of HTML (specifically the anchor tag) will hold the repository
 		name
 
-```  $0 ~ /itemprop=\"name codeRepository\"/ 
+```  $0 ~ /itemprop=\"name codeRepository\"/ ```
 
 	Anytime the entire line ($0) matches the pattern print certain parts
 
@@ -61,7 +61,7 @@ Parsing HTML with awk
 		field separator flag -F. The argument to this a regular expression.
 		
 
-```	-F"/|\""
+```	-F"/|\""  ```
 
 	The argument is in double quotes. The expression matches either a forward
 		slash or a double quote (escaped character required). 
@@ -69,9 +69,11 @@ Parsing HTML with awk
 Understanding field separator
   given the awk command
 
+```shell
 	curl $repoURL 2> /dev/null | \
 	  awk -F"/|\"" 	\
 	  '$0 ~ /itemprop=\"name codeRepository\" >/ {print "1: "$1"  2: "$2" 3: "$3" 4: "$4}'
+```
 
 	Results
 		Enter your GitHub User Name: 
