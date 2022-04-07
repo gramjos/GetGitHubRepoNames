@@ -6,6 +6,10 @@
 
 <iframe src="https://giphy.com/embed/HpzuGSi9W97idMmzIv" width="480" height="254" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/HpzuGSi9W97idMmzIv">via GIPHY</a></p>
 
+
+![Alt Text](https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif)
+
+
 Github uses the URL below for user repository page
 	https://github.com/gramjos?tab=repositories
 The only unique part of the URL is the username gramjos
