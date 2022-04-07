@@ -1,7 +1,7 @@
 ####	Print to console's standard output the names of the public repositories associated with the given user name
 
 <p align="center">
-![Alt Text](https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif)
+  <img src="https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif" alt="demo_gif"/>
 </p>
 
 
