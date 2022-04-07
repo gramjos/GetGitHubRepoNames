@@ -14,8 +14,8 @@ ASIDE: Using the profile page has the same data and its URL is
 In the code snippet below. I ask the user for their username
 
 ```shell
-		echo "Enter your GitHub URL: "
-		read GitHubUserName;
+	echo "Enter your GitHub URL: "
+	read GitHubUserName;
 ```
 
 I assemble the URL with string concatenation 
@@ -41,7 +41,9 @@ Parsing HTML with awk
 	Awk will process the retrieved HTML line by line. 
 	The line of interest is below
 
-```shell        <a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" > ```
+```shell        
+	<a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >
+```
 
 	The attribute itemprop and its value "name codeRepository" indicate this 
 		line of HTML (specifically the anchor tag) will hold the repository
