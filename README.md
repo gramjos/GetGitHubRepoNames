@@ -4,6 +4,8 @@
  <img src="http://img.youtube.com/vi/XT7u5u01Rww/mqdefault.jpg" alt="Watch the video" width="240" height="180" border="10" />
 </a>
 
+<iframe src="https://giphy.com/embed/HpzuGSi9W97idMmzIv" width="480" height="254" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/HpzuGSi9W97idMmzIv">via GIPHY</a></p>
+
 Github uses the URL below for user repository page
 	https://github.com/gramjos?tab=repositories
 The only unique part of the URL is the username gramjos
