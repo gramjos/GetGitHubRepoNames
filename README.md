@@ -20,7 +20,7 @@ In the code snippet below. I ask the user for their username
 
 I assemble the URL with string concatenation 
 
-```
+```shell
 	fpart="https://github.com/"
 	spart="?tab=repositories"
 	repoURL=$fpart$GitHubUserName$spart;
@@ -33,7 +33,7 @@ The curl command prints download status information to standard error. This
 	status information will be redirected to /dev/null. This is done to keep
 	the console clear of any data that is NOT the repositories names
 
-```
+```shell
 	curl $repoURL 2> /dev/null
 ```
 
@@ -41,13 +41,13 @@ Parsing HTML with awk
 	Awk will process the retrieved HTML line by line. 
 	The line of interest is below
 
-        <a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >
+```shell        <a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" > ```
 
 	The attribute itemprop and its value "name codeRepository" indicate this 
 		line of HTML (specifically the anchor tag) will hold the repository
 		name
 
-```  $0 ~ /itemprop=\"name codeRepository\"/ ```
+```shell  $0 ~ /itemprop=\"name codeRepository\"/ ```
 
 	Anytime the entire line ($0) matches the pattern print certain parts
 
@@ -61,7 +61,7 @@ Parsing HTML with awk
 		field separator flag -F. The argument to this a regular expression.
 		
 
-```	-F"/|\""  ```
+```shell	-F"/|\""  ```
 
 	The argument is in double quotes. The expression matches either a forward
 		slash or a double quote (escaped character required). 
@@ -87,7 +87,7 @@ Understanding field separator
 
 Notice how the second field is blank
 
-```     <a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >
+```shell     <a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >	```
 
 There is no contents in between the two possible field separators
 
