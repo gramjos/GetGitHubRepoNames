@@ -1,6 +1,8 @@
 ####	Print to console's standard output the names of the public repositories associated with the given user name
 
+<p align="center">
 ![Alt Text](https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif)
+</p>
 
 
 Github uses the URL below for user repository page
