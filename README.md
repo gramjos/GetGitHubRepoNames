@@ -43,7 +43,7 @@ Parsing HTML with awk
 	Awk will process the retrieved HTML line by line. 
 	The line of interest is below
 
-```shell        
+```HTML        
 	<a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >
 ```
 
