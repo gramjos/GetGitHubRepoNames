@@ -49,7 +49,9 @@ Parsing HTML with awk
 		line of HTML (specifically the anchor tag) will hold the repository
 		name
 
-```shell  $0 ~ /itemprop=\"name codeRepository\"/ ```
+```shell  
+	$0 ~ /itemprop=\"name codeRepository\"/ 
+```
 
 	Anytime the entire line ($0) matches the pattern print certain parts
 
@@ -63,7 +65,9 @@ Parsing HTML with awk
 		field separator flag -F. The argument to this a regular expression.
 		
 
-```shell	-F"/|\""  ```
+```shell	
+	-F"/|\""  
+```
 
 	The argument is in double quotes. The expression matches either a forward
 		slash or a double quote (escaped character required). 
@@ -89,7 +93,9 @@ Understanding field separator
 
 Notice how the second field is blank
 
-```shell     <a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >	```
+```shell     
+	<a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >	
+```
 
 There is no contents in between the two possible field separators
 
