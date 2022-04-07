@@ -1,12 +1,5 @@
 ####	Print to console's standard output the names of the public repositories associated with the given user name
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=XT7u5u01Rww" target="_blank">
- <img src="http://img.youtube.com/vi/XT7u5u01Rww/mqdefault.jpg" alt="Watch the video" width="240" height="180" border="10" />
-</a>
-
-<iframe src="https://giphy.com/embed/HpzuGSi9W97idMmzIv" width="480" height="254" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/HpzuGSi9W97idMmzIv">via GIPHY</a></p>
-
-
 ![Alt Text](https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif)
 
 
