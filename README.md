@@ -1,13 +1,15 @@
 ####	Print to console's standard output the names of the public repositories associated with the given user name
 
 <p align="center">
-  <img src="https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif" alt="demo_gif"/>
+  <img 
+    src="https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif"
+	alt="demo_gif"
+  />
 </p>
 
 
 Github uses the URL below for user repository page
-<p align="center">
-  https://github.com/gramjos?tab=repositories </p>
+<p align="center">https://github.com/gramjos?tab=repositories </p>
 The only unique part of the URL is the username gramjos
 
 ASIDE: Using the profile page has the same data and its URL is

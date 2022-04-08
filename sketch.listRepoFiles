@@ -1,0 +1,28 @@
+Usage:
+$ listRepoFiles gramjos vim	# return the file/folders names in the vim repo
+
+public repo URL https://github.com/gramjos/GetGitHubRepoNames
+
+<a class="js-navigation-open Link--primary" 
+	title="repoName.sh" 
+	data-pjax="#repo-content-pjax-container" 
+	href="/gramjos/GetGitHubRepoNames/blob/master/repoName.sh">
+	repoName.sh
+</a>
+
+Strategy:
+
+  1. String concatenate public repo URL with in command line arguments
+    - error check and display usage when not enoughs args supplied 
+
+  2. awk match for this 
+  		class="js-navigation-open Link--primary"
+	 Field separator will be
+	 	-F"<|>"
+		using the example a tag from above
+		field 1 will be blank
+		field 2 will contain all the attributes and values of the a tag
+		field will be the target
+
+	
+
