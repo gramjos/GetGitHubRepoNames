@@ -1,4 +1,6 @@
-####	Print to console's standard output the names of the public repositories associated with the given user name
+## List Repos
+# TODO multiple command line args. As many as possible. 
+if certain parts are unknowable then match around it
 
 <p align="center">
   <img 
