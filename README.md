@@ -1,6 +1,3 @@
-## List Repos
-# TODO multiple command line args. As many as possible. 
-if certain parts are unknowable then match around it
 
 <p align="center">
   <img 
@@ -105,4 +102,8 @@ Notice how the second field is blank
 
 There is no contents in between the two possible field separators
 
+
+## List Repos
+# TODO multiple command line args. As many as possible. 
+if certain parts are unknowable then match around it
 
