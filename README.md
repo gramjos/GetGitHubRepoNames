@@ -1,4 +1,6 @@
-
+<h3>
+	Display GitHub Repositories of given user name
+</h3>
 <p align="center">
   <img 
     src="https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif"
