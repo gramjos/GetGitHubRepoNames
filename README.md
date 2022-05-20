@@ -14,7 +14,9 @@ Github uses the URL below for user repository page
 The only unique part of the URL is the username gramjos
 
 ASIDE: Using the profile page has the same data and its URL is
+<p align="center">
 	"https://github.com/gramjos"
+</p>
 
 In the code snippet below. I ask the user for their username
 
