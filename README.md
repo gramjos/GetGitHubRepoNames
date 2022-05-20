@@ -52,9 +52,9 @@ Parsing HTML with awk<br>
 	<a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >
 ```
 
-	The attribute itemprop and its value "name codeRepository" indicate this 
+<p>The attribute itemprop and its value "name codeRepository" indicate this 
 		line of HTML (specifically the anchor tag) will hold the repository
-		name
+		name</p>
 
 ```shell  
 	$0 ~ /itemprop=\"name codeRepository\"/ 
