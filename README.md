@@ -60,16 +60,16 @@ Parsing HTML with awk<br>
 	$0 ~ /itemprop=\"name codeRepository\"/ 
 ```
 
-	Anytime the entire line ($0) matches the pattern print certain parts
+<p>Anytime the entire line ($0) matches the pattern print certain parts</p>
 
 	$0 ~ /pattern/ {print ...}
 
-	In this case the pattern is itemprop="name codeRepository"
-	When this pattern is implemented the double will be escaped.
+<p>In this case the pattern is itemprop="name codeRepository"
+	When this pattern is implemented the double will be escaped.</p>
 
-	By default awk will separate each line into various field demarcated 
+<p>By default awk will separate each line into various field demarcated 
 		by spaces. Will override this default behavior by specifying the
-		field separator flag -F. The argument to this a regular expression.
+		field separator flag -F. The argument to this a regular expression.</p>
 		
 
 ```shell	
