@@ -12,6 +12,13 @@ listRepoFiles() {
 		exit 1;
 	fi
 
+	GitHubUserName=$1;
+	url_stub="https://github.com/";
+	repo_name=$2;
+	f_slash="/";
+	repoURL=$url_stub$GitHubUserName$f_slash$repo_name
+
+	echo $repoURL 
 }
 
 

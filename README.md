@@ -42,9 +42,9 @@ The curl command prints download status information to standard error. This
 	curl $repoURL 2> /dev/null
 ```
 
-Parsing HTML with awk
-	Awk will process the retrieved HTML line by line. 
-	The line of interest is below
+Parsing HTML with awk<br>
+	&nbsp;&nbsp;Awk will process the retrieved HTML line by line. 
+	&nbsp;&nbsp;The line of interest is below
 
 ```HTML        
 	<a href="/gramjos/DePaul_SE350" itemprop="name codeRepository" >
