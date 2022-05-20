@@ -76,8 +76,8 @@ Parsing HTML with awk<br>
 	-F"/|\""  
 ```
 
-	The argument is in double quotes. The expression matches either a forward
-		slash or a double quote (escaped character required). 
+<p>The argument is in double quotes. The expression matches either a forward
+		slash or a double quote (escaped character required). </p>
 
 Understanding field separator
   given the awk command
