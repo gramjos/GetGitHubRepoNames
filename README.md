@@ -1,3 +1,4 @@
+<span style="color: red;">text</span>
 <h3 style="color: #00ff00;">
 	Display GitHub Repositories of given user name
 </h3>
