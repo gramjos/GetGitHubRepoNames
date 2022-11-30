@@ -1,3 +1,6 @@
+<script> <pre> <style>
+
+ </pre> </style> </script> 
 <style>p{color:red;}</style>
 *foo*
 
