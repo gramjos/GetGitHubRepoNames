@@ -1,4 +1,4 @@
-<h3>
+<h3 style="color: #00ff00;">
 	Display GitHub Repositories of given user name
 </h3>
 <p align="center">
