@@ -9,7 +9,7 @@
 </p>
 
 
-Github uses the URL below for user repository page
+Github uses the URL below for user repository pages's
 <p align="center">https://github.com/gramjos?tab=repositories </p>
 The only unique part of the URL is the username gramjos
 
@@ -28,9 +28,9 @@ In the code snippet below. I ask the user for their username
 I assemble the URL with string concatenation 
 
 ```shell
-	fpart="https://github.com/"
-	spart="?tab=repositories"
-	repoURL=$fpart$GitHubUserName$spart;
+	domain="https://github.com/"
+	query="?tab=repositories"
+	repoURL=$domain$GitHubUserName$query;
 ```
 
 I use curl to retrieve the HTML from 
@@ -64,7 +64,7 @@ Parsing HTML with awk<br>
 
 	$0 ~ /pattern/ {print ...}
 
-<p>In this case the pattern is itemprop="name codeRepository"
+<p>In this case, the pattern is itemprop="name codeRepository" <br>
 	When this pattern is implemented the double will be escaped.</p>
 
 <p>By default awk will separate each line into various field demarcated 
