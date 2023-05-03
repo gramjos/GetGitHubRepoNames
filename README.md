@@ -3,7 +3,7 @@
 </h3>
 <p align="center">
   <img 
-    src="https://media.giphy.com/media/HpzuGSi9W97idMmzIv/giphy.gif"
+    src="https://giphy.com/gifs/QS6nYlQUgstr48Jyb7"
 	alt="demo_gif"
   />
 </p>
@@ -65,7 +65,7 @@ Parsing HTML with awk<br>
 	$0 ~ /pattern/ {print ...}
 
 <p>In this case, the pattern is itemprop="name codeRepository" <br>
-	When this pattern is implemented the double will be escaped.</p>
+	When this pattern is implemented the double quotes are escaped.</p>
 
 <p>By default awk will separate each line into various field demarcated 
 		by spaces. Will override this default behavior by specifying the
