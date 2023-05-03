@@ -3,8 +3,12 @@
 </h3>
 <p align="center">
   <img 
-<iframe src="https://giphy.com/embed/QS6nYlQUgstr48Jyb7" width="480" height="278" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/QS6nYlQUgstr48Jyb7">via GIPHY</a></p>
+    src="https://giphy.com/embed/QS6nYlQUgstr48Jyb7"
+	alt="demo_gif"
   />
+
+
+  
 </p>
 
 
