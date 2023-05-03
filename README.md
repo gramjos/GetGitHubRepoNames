@@ -3,11 +3,9 @@
 </h3>
 <p align="center">
   <img 
-    src="https://giphy.com/embed/QS6nYlQUgstr48Jyb7"
+    src="https://media.giphy.com/media/QS6nYlQUgstr48Jyb7/giphy.gif"
 	alt="demo_gif"
   />
-
-
   
 </p>
 
