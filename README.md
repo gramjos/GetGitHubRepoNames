@@ -7,12 +7,19 @@ The GIFF below shows the following commands:<br>
 ```shell
 cat repoNames.sh
 ```
+
     <ul>
 	 <li>display the script being ran</li>
     </ul>
+
 ```shell
     source repoNames.sh && listRepos
 ```
+
+    <ul>
+	 <li>display the script being ran</li>
+    </ul>
+
 </h5>
 
 <p align="center">
