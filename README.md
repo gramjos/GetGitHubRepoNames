@@ -8,17 +8,13 @@ The GIFF below shows the following commands:<br>
 cat repoNames.sh
 ```
 
-    <ul>
-	 <li>display the script being ran</li>
-    </ul>
+	 - display the script being ran
 
 ```shell
     source repoNames.sh && listRepos
 ```
 
-    <ul>
-	 <li>display the script being ran</li>
-    </ul>
+	 * display the script being ran
 
 </h5>
 
