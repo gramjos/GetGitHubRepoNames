@@ -1,30 +1,48 @@
 <h3 align="center">
 	Display GitHub Repositories of given user name
 </h3>
-<h5 align="center">
-The GIFF below shows the following commands:<br>
-
-```shell
-cat repoNames.sh
-```
-
-	 - display the script being ran
-
-```shell
-    source repoNames.sh && listRepos
-```
-
-	 * display the script being ran
-
-</h5>
-
+</p>
 <p align="center">
   <img 
     src="https://media.giphy.com/media/QS6nYlQUgstr48Jyb7/giphy.gif"
 	alt="demo_gif"
   />
-  
 </p>
+
+<h3 align="center">
+The GIFF above shows the following commands:<br>
+
+</h3>
+
+<p align="center">
+
+```shell
+cat repoNames.sh
+```
+
+* display the script being ran
+
+```shell
+    source repoNames.sh && listRepos
+```
+* Sctivate the script and bring the function in to the current namepsace
+
+### The rest of this document will step-by-step explain how this short script functions 
+
+```shell
+    listRepos() {
+	echo "Enter your GitHub User Name: ";
+	read GitHubUserName;
+	fpart="https://github.com/";
+	spart="?tab=repositories";
+	repoURL=$fpart$GitHubUserName$spart;
+
+	curl $repoURL 2> /dev/null | \
+		awk -F"/|\"" 	\
+		'$0 ~ /itemprop=\"name codeRepository\" >/ {print $4}';
+}
+
+```
 
 
 Github uses the URL below for user repository pages's
