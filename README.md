@@ -3,11 +3,15 @@
 </h3>
 <h5 align="center">
 The GIFF below shows the following commands:<br>
-1. cat repoNames.sh
-	+ display the script being ran
-2. ```shell source repoNames.sh && listRepos```
-	+ 
-
+```shell
+cat repoNames.sh
+```
+    <ul>
+	 <li>display the script being ran</li>
+    </ul>
+```shell
+source repoNames.sh && listRepos
+```
 </h5>
 
 <p align="center">
