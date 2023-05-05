@@ -1,6 +1,15 @@
 <h3 align="center">
 	Display GitHub Repositories of given user name
 </h3>
+<h5 align="center">
+The GIFF below shows the following commands:<br>
+1. cat repoNames.sh
+	+ display the script being ran
+2. ```shell source repoNames.sh && listRepos```
+	+ 
+
+</h5>
+
 <p align="center">
   <img 
     src="https://media.giphy.com/media/QS6nYlQUgstr48Jyb7/giphy.gif"
