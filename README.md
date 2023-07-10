@@ -10,6 +10,13 @@
 </p>
 
 <h3 align="center">
+
+```shell
+cat repoNames.sh
+```
+
+</h3>
+<h3 align="center">
 The GIFF above shows the following commands:<br>
 
 </h3>
@@ -25,7 +32,8 @@ cat repoNames.sh
 ```shell
     source repoNames.sh && listRepos
 ```
-* Sctivate the script and bring the function in to the current namepsace
+* Activate the script and bring the function in to the current namepsace
+</p>
 
 ### The rest of this document will step-by-step explain how this short script functions 
 
