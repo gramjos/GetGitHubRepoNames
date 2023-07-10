@@ -1,7 +1,20 @@
 <h3 align="center">
 	Display GitHub Repositories of given user name
 </h3>
+<p align="center">
+  <img 
+    src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzJ1b2Nxd21sYm1qeWM5NHE2dTBzamMxdDh1Y250aDZ5dHQ5bTduNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Oo83cGzI6RuI1kb2lP/giphy.gif"
+	alt="demo_gif"
+  />
 </p>
+
+<p align="center">
+  <img 
+    src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BxNXlsdzAzOGxpb25wejQ3aDV1NXo1NWk4ZmVzMWlpaWRnanN0NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DiX6lk10tfKvVV9F87/giphy.gif"
+	alt="demo_gif"
+  />
+</p>
+
 <p align="center">
   <img 
     src="https://media.giphy.com/media/QS6nYlQUgstr48Jyb7/giphy.gif"
@@ -149,7 +162,7 @@ Notice how the second field is blank
 ```
 
 There is no contents in between the two possible field separators
-
+![image](pattern_regex.png)
 
 ## List Repos
 # TODO multiple command line args. As many as possible. 
