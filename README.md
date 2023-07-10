@@ -60,6 +60,6 @@ The block of HTML below is an example of a  successful match. A successful match
 ```
 
 The image below, demonstrates how to capture the inner HTML of tags that contain the unique class that is shared between the sought after data.
-![image](pattern_regex.png)
+![image](readmeAssets/pattern_regex.png)
 
 
