@@ -77,8 +77,7 @@ The block of HTML below is an example of a  successful match. A successful match
 #### Further Regex Experiments with Perl
 
 ```shell
-$ curl "https://github.com/gramjos/tour_co" >> raw.html
-$ cat raw.html | 
+$ curl "https://github.com/gramjos/tour_co" | 
      perl -ne 'print "$1\n" 
         if /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/'
 android
