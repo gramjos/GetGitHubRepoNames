@@ -63,6 +63,7 @@ curl -s "https://github.com/"$1"/"$2 |\
 <p style="color:red;">The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.</p>
 Within the single quotes in the command below, sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
 Aside,`-F` flag for field separator pattern. How a matched is segmented/grouped. Either, the opening or closing character of and opening or closing tag. 
+
 ```shell
 awk -F">|<" '$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
 
@@ -75,10 +76,15 @@ The block of HTML below is an example of a  successful match. A successful match
 ```
 
 #### Further Regex Experiments with Perl
-Given HTML structure, the two characters,greater than > and less than sign < 
-are explicitly matched for. <br>
-*<a>  </a>*
-   I  I
+Given HTML structure, *most likely* any match with this pattern will occur within an achor tag. 
+
+```html
+<a>  </a>
+```
+
+The greater than (>) is explicitly matched for and the capture begins. Before the first and only capture groups starts consuming characters, the negated character class `[^>]*` and greedy modifier will consumer everything that is not a greater than sign.   <br>
+
+
 
 ```shell
 $ curl -s "https://github.com/gramjos/tour_co" | 
