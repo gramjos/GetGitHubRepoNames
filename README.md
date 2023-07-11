@@ -1,9 +1,9 @@
-## Scraping Github with Bash 
-In a previous version of this script functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
+## Scraping Github with Bash and Zsh
+In a previous version of this script, back in my bash beginnings, functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
 - `cat repoName.sh`
   - verfiying what will be executed
 - `source repoName.sh && listRepos`
-  - import file into the current shell environment & run
+  - import file into the current bash shell environment & run
 
 <p align="center">
   <img 
@@ -13,7 +13,7 @@ In a previous version of this script functionality only inlcuded displaying the 
 </p>
 
 ### Searching a layer deeper
-The file `reposFiles.sh` has two parameters **[Github Username] [Repository Name]** display the contents of the repository. <br>
+The zsh file `reposFiles.sh` has two parameters **[Github Username] [Repository Name]** display the contents of the repository. <br>
 
 - The graphic below assumes: 
   - the file is executable 
@@ -77,7 +77,7 @@ The block of HTML below is an example of a  successful match. A successful match
 #### Further Regex Experiments with Perl
 
 ```shell
-$ curl "https://github.com/gramjos/tour_co" | 
+$ curl -s "https://github.com/gramjos/tour_co" | 
      perl -ne 'print "$1\n" 
         if /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/'
 android
