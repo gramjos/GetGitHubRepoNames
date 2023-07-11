@@ -75,6 +75,10 @@ The block of HTML below is an example of a  successful match. A successful match
 ```
 
 #### Further Regex Experiments with Perl
+Given HTML structure, the two characters,greater than > and less than sign < 
+are explicitly matched for. <br>
+*<a>  </a>*
+   I  I
 
 ```shell
 $ curl -s "https://github.com/gramjos/tour_co" | 
@@ -97,7 +101,5 @@ pubspec.lock
 pubspec.yaml
 ```
 
-The image below, demonstrates how to capture the inner HTML of tags that contain the unique class that is shared between the sought after data.
-![image](readmeAssets/pattern_regex.png)
-
-
+TODO
+option to recursively download from root(file or directory)
