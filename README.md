@@ -1,7 +1,7 @@
 ## Scraping Github with Bash 
-In a previus version of this script functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
+In a previous version of this script functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
 - `cat repoName.sh`
-  - verfiying what will be exevuted
+  - verfiying what will be executed
 - `source repoName.sh && listRepos`
   - import file into the current shell environment & run
 
@@ -17,7 +17,7 @@ The file `reposFiles.sh` has two parameters **[Github Username] [Repository Name
 
 - The graphic below assumes: 
   - the file is executable 
-  - in current directoy
+  - in current directory
   - There is a Github user named gramjos
   - This Github user has a *Public* Repository called tour_co
 <p align="center">
@@ -61,8 +61,8 @@ curl -s "https://github.com/"$1"/"$2 |\
 
 ##### When the awk command recives the raw HTML
 The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.<br>
-Within the single quotes in the command below, sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, As `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
-`-F` flag for field separator pattern
+Within the single quotes in the command below, sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
+Aside,`-F` flag for field separator pattern. How a matched is segmented/grouped. Either, the opening or closing character of and opening or closing tag. 
 ```shell
 awk -F">|<"	'$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
 
