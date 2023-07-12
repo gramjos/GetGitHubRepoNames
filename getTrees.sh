@@ -29,10 +29,10 @@ for item in "${href_links[@]}"; do
   isFileEr=$?
 #  echo $isFileEr ; 
   if [[ "$isFileEr" -eq "0" ]];then
-  	echo 'Items inside of ' $item ' are below.. ' ; 
+  	echo 'Items inside of ' ${item##*/} ' are below.. ' ; 
 	echo $cc;
   else
-    echo $item ' is a file'
+    echo ${item##*/} ' is a file'
 	  fi
   printf "\n"
 done

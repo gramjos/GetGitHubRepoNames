@@ -61,7 +61,7 @@ curl -s "https://github.com/"$1"/"$2 |\
 
 ##### When the awk command recives the raw HTML
 <p style="color:red;">The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.</p>
-Within the single quotes in the command below, sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
+Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
 Aside,`-F` flag for field separator pattern. How a matched is segmented/grouped. Either, the opening or closing character of and opening or closing tag. 
 
 ```shell
@@ -90,22 +90,24 @@ The greater than (>) is explicitly matched for and the capture begins. Before th
 $ curl -s "https://github.com/gramjos/tour_co" | 
      perl -ne 'print "$1\n" 
         if /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/'
-android
-assets
-ios
-lib
-linux
-macos
-test
-web
-windows
-.gitignore
-.metadata
-README.md
-analysis_options.yaml
-pubspec.lock
-pubspec.yaml
 ```
+*Example output from the the above command<br>*
+android<br>
+assets<br>
+ios<br>
+lib<br>
+linux<br>
+macos<br>
+test<br>
+web<br>
+windows<br>
+.gitignore<br>
+.metadata<br>
+README.md<br>
+analysis_options.yaml<br>
+pubspec.lock<br>
+pubspec.yaml<br>
+
 
 TODO
 option to recursively download from root(file or directory)
