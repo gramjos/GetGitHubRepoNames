@@ -13,7 +13,7 @@ In a previous version of this script, back in my bash beginnings, functionality 
 </p>
 
 ### Searching a layer deeper
-The zsh file `reposFiles.sh` has two parameters **[Github Username] [Repository Name]** display the contents of the repository. <br>
+The zsh file `reposFiles.sh` has two parameters **[Github Username] [Repository Name]** and displays the contents of the repository. <br>
 
 - The graphic below assumes: 
   - the file is executable 
@@ -110,4 +110,5 @@ pubspec.yaml<br>
 
 
 TODO
-option to recursively download from root(file or directory)
+- option to recursively download ALL starting from given point from root(file or directory)
+- next script should get and organize all link to files and directories of given repo

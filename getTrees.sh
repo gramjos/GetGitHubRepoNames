@@ -1,9 +1,11 @@
 #!/usr/bin/env zsh
 
+# displays the contents of given repo and 1 level below 
+# TODO pretty print the output.
+#set -x 
 uName="$1";
 repo="$2";
 
-# Store the matches in an array.
 href_links=()
 for match in $(
   curl -s "https://github.com/"$1"/"$2 | 
@@ -13,27 +15,25 @@ for match in $(
   do
     href_links+=($match)
 done
-
-# Print the array.
-#echo "${href_links[@]}"
-#
-## are these links directories or files
-# if( isFile(link) )
-# 		# leaf so do nada
-# else
-# 		display contents of this directory
-
+# "${href_links[@]}" entire array
 for item in "${href_links[@]}"; do
   command="curl -s 'https://github.com'$item | jq '.payload.tree.items[] | .name'"
+  # curl calls directly to directories within a repo returns JSON. 
+    # jq translation, within the payload obj there is a tree obj that contains a list called items and
+    # one of the attributes within this list is 'name'
+
+  # the below cammand returns a return error code of 5 when called with a file link, instead of a 
+  # directory link 
   cc=$(eval $command 2> /dev/null)
   isFileEr=$?
-#  echo $isFileEr ; 
-  if [[ "$isFileEr" -eq "0" ]];then
-  	echo 'Items inside of ' ${item##*/} ' are below.. ' ; 
-	echo $cc;
-  else
-    echo ${item##*/} ' is a file'
-	  fi
-  printf "\n"
-done
-
+  case "$isFileEr" in 
+    5) echo "File: "$item 
+        ;; 
+    0) echo 'Directory ' ${item##*/} ' contains:'  ;
+       cc_clean=$(echo $cc | tr -d '"'| paste -s -d " " -); 
+       echo "\t"$cc_clean; 
+      ;; 
+    *) echo "error with "$isFileEr 
+      ;; 
+  esac 
+done 
