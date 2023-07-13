@@ -1,11 +1,12 @@
 #!/usr/bin/env zsh
 
-curl -s "https://github.com""$1" \
- |
-jq '.payload.blob.rawBlob' \
- |
-sed -e 's/\("\)/strFD=\1/1' > strungFile.py
+trap "rm -f strFD.py" EXIT
 
-#$ echo "${PATH//\:/\\n}"
-python -c 'from strungFile import *;print(strFD)' > ${1//\//_}
+curl -s "https://github.com""$1" \
+ | # two separate key names found that contain raw file info
+jq -r '.payload.blob | [.rawLines, .rawGlob] | add' \
+ | # add variable declaration at beginning of line
+sed -e '1 s/\[/arrFile=[/' > strFD.py
+#
+python -c 'from strFD import *;_=[print(i) for i in arrFile]' > ${1:t}
 
