@@ -112,3 +112,5 @@ pubspec.yaml<br>
 TODO
 - option to recursively download ALL starting from given point from root(file or directory)
 - next script should get and organize all link to files and directories of given repo
+- scan current directory and check for conflict names before write (possibly oever writting)
+- create a download loop for directories

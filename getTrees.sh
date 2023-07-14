@@ -23,61 +23,54 @@ usage_statement(){
 
 getFileSelect(){
   echo "what to download from this list "$1 " ??" 
-  echo "if a dir is chosen just get its contents"
-  # use fzf to search trhu list
+  # echo "if a dir is chosen just get its contents"
+  # use fzf to search trhu list, also do a posix version
   
 }
 getFile(){
   echo "Download file "$1 " ??" 
-  read "respon?Confirm Y or N " 
-  echo $respon 
+  read "respon?Confirm (Y)es (N)o or (E)xit " 
   case "$respon" in
   	[yY]) echo " you selected yes to down load"
 		  source ./downloadFile.sh  $1
 		;;
-	[eE])	echo "stopping the ask prompt"
-		;; 
-	*)	echo " NO get"
-		;; 
+    [eE])	echo "stopping the ask prompt"
+          exit; 
+    ;; 
+    [nN])	echo "Not this file..."
+    ;; 
+    *)	echo " NO get by unknown response "$respon 
+    ;; 
 	esac
 }
 
-#(( "$#" >= 2 )) && usage_statement "args"
+echo "Checking the contents of "$2" by "$1
 case "$#" in
-  2) echo "printing only"
-    ;; 
-  3) echo "getting!"
+  2) echo "viewing only"
+  ;; 
+  3) echo "Option to GETT!"
      [[ "$3" == "-g" ]] && getFlag=0
-    ;; 
+  ;; 
   *) usage_statement "args"
-    ;;
+  ;;
   esac 
 
-href_links=()
-for match in $( curl -s $github$1"/"$2 | perl -ne 'print "$1\n" if 
-/class="js-navigation-open Link--primary".* href="(\/'$1'\/'$2'\/[^"]*)"[^>]*>([^<]*)(.*)/'
+pattern='class="js-navigation-open Link--primary".* href="(\/'$1'\/'$2'\/[^"]*)"[^>]*>([^<]*)(.*)'
+export pattern
+for item in $(
+		curl -s $github$1"/"$2 | perl -ne 'print "$1\n" if /$ENV{pattern}/'
 			  ) ; do
-    href_links+=($match)
-done
-[[ -z ${href_links[*]} ]] && usage_statement "uName"
-
-for item in "${href_links[@]}"; do
-  command="curl -s $github$item | jq '.payload.tree.items[] | .name'"
-  cc=$(eval $command 2> /dev/null)
+  cc=$(curl -s $github$item | jq '.payload.tree.items[] | .name' 2> /dev/null)
   isFileEr=$?
   case "$isFileEr" in 
     5) echo "File: "${item:t} 
-    # ask if user wants to get file. 
-    [[ $getFlag -eq 0 ]] && getFile $item 
-# if get file returns err
-        ;; 
-    0) echo 'Directory ' ${item##*/} ' contains:'  
-       cc_clean=$(echo $cc | tr -d '"'| paste -s -d " " -)
-       echo "\t"$cc_clean;
-       # ask here if you want to get from the dir above
-    [[ $getFlag -eq 0 ]] && getFileSelect $cc_clean 
-      ;; 
+       [[ $getFlag -eq 0 ]] && getFile $item 
+    ;; 
+    0) cc_clean=$(echo $cc | tr -d '"'| paste -s -d " " -)
+       echo 'Directory ' ${item##*/} ' contains: '$cc_clean
+       [[ $getFlag -eq 0 ]] && getFileSelect $cc_clean 
+    ;; 
     *) echo "error with "$isFileEr 
-      ;; 
+    ;; 
   esac 
-  done 
+done
