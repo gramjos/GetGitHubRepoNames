@@ -1,5 +1,19 @@
+> TLDR;<br> Perl and Awk regular expressions to parse HTML
+
 ## Scraping Github with Bash and Zsh
-In a previous version of this script, back in my bash beginnings, functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
+
+### Table of Contents - Script Evolution
+| Epoch   | File              | Purpose                            | Lines of Code  |
+| :----: | -------------   |:-------------:                       | :-----:         |
+| 1      | `listRepos.sh `   | Get public repos from given username   | 8              |
+| 2      | `reposFiles.sh `  | List the contents of repos (1 level deep)|   15           |
+|  3     | `getTree.sh`        |Explore repo and download selected files|    ~90          |
+| 3.5      | `downloadFile.sh `  | Helper function for getTrees.sh|   5           |
+
+### Motivation
+An edifying exploration of shell scripting because shell's are omnipresent.
+### Epoch 1
+In the earliest version of this script, functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
 - `cat repoName.sh`
   - verfiying what will be executed
 - `source repoName.sh && listRepos`
@@ -12,14 +26,9 @@ In a previous version of this script, back in my bash beginnings, functionality 
   />
 </p>
 
-### Searching a layer deeper
+### Epoch 2 - Searching a layer deeper
 The zsh file `reposFiles.sh` has two parameters **[Github Username] [Repository Name]** and displays the contents of the repository. <br>
 
-- The graphic below assumes: 
-  - the file is executable 
-  - in current directory
-  - There is a Github user named gramjos
-  - This Github user has a *Public* Repository called tour_co
 <p align="center">
   <img 
     src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExczJqZTFtYXhsODhpbGduZGJkMWZvaDhrNnpvZDF2dm9hcjhxc214dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ozPuTxjCDIyG98QcMj/giphy.gif"
@@ -34,7 +43,7 @@ Friendly usage statment displayed when arguments are inadequate.
   />
 </p>
 
-#### Below is the entirity of the script
+#### Below is the entirity of the epoch 2 script
 
 ```shell
 #!/usr/bin/env zsh
@@ -59,10 +68,11 @@ curl -s "https://github.com/"$1"/"$2 |\
 
 ```
 
-##### When the awk command recives the raw HTML
-<p style="color:red;">The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.</p>
-Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
-Aside,`-F` flag for field separator pattern. How a matched is segmented/grouped. Either, the opening or closing character of and opening or closing tag. 
+#### When the awk command recives the raw HTML
+<p>The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.</p>
+Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br><br>
+Aside,`-F` flag for a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or closing of an HTML tag (greater than or less than sign). 
+
 
 ```shell
 awk -F">|<" '$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
@@ -74,7 +84,7 @@ The block of HTML below is an example of a  successful match. A successful match
 ```shell
 <a class="js-navigation-open Link--primary" title="ABOUTS" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/ABOUTS">ABOUTS</a>
 ```
-
+### Epoch 3 - Still under Construction... 
 #### Further Regex Experiments with Perl
 Given HTML structure, *most likely* any match with this pattern will occur within an achor tag. 
 
@@ -110,7 +120,5 @@ pubspec.yaml<br>
 
 
 TODO
-- option to recursively download ALL starting from given point from root(file or directory)
-- next script should get and organize all link to files and directories of given repo
-- scan current directory and check for conflict names before write (possibly oever writting)
-- create a download loop for directories
+- assemble magic links for download 
+- During a get file, scan current directory and check for conflict names before write (possibly over writting the downloaded file)

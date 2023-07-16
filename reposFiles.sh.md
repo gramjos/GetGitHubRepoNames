@@ -1,7 +1,11 @@
+# A Walk Through 
+```shell
 #!/usr/bin/env zsh
-# the above directive is more portable b/c from an 'env' 
-# 	zsh can be found in the user default current environment 
+```
+- the above directive is more portable b/c from an 'env' 
+- zsh can be found in the user default current environment 
 
+```shell
 usage_statement(){
 # a 'here doc' string inside a command substitution
 	USAGE=$(cat <<-END
@@ -27,26 +31,35 @@ listRepoFiles() {
 
 	echo $repoURL 
 }
-# array list of command line args
+ ```
+array list of command line args
+
+```shell
 listRepoFiles "$@"; 
+ ```
 
-#  the 'a' tags that contain the items in the first directory of the repo:
+  the 'a' tags that contain the items in the first directory of the repo:
 
-## <a class="js-navigation-open Link--primary" title="VOpen.applescript" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/VOpen.applescript">VOpen.applescript</a>
+ ```shell 
+ <a class="js-navigation-open Link--primary" title="VOpen.applescript" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/VOpen.applescript">VOpen.applescript</a>
+<a class="js-navigation-open Link--primary" title="ABOUTS" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/ABOUTS">ABOUTS</a>
+```
 
-## <a class="js-navigation-open Link--primary" title="ABOUTS" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/ABOUTS">ABOUTS</a>
+- what is unique?
+```html
+ 		class="js-navigation-open Link--primary"
+ ```
 
-#what is unique?
-# 		class="js-navigation-open Link--primary"
 
-# scope allows
+scope allows accesing 
 #echo $repoURL; 
 	curl $repoURL 2> /dev/null | \
 		awk -F">|<" 	\
-# row field separator
-		'$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
-# match group 1 captures the innerHTML
-# [[repoName.sh]]
-#[[repoNameFiles.sh]]
-#[[searchrepo.sh]]
-#		'$0 ~ /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/ {print $5}';
+ row field separator
+	'$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
+
+ match group 1 captures the innerHTML
+ [[repoName.sh]]
+[[repoNameFiles.sh]]
+[[searchrepo.sh]]
+		'$0 ~ /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/ {print $5}';
