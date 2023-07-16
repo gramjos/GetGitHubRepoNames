@@ -13,9 +13,9 @@
 ### Motivation
 An edifying exploration of shell scripting because shell's are omnipresent.
 ### Epoch 1
-In the earliest version of this script, functionality only inlcuded displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
+In the earliest version of this script, functionality only included displaying the public facing repositories of a given user. The below graphic  illustrates this in two commands:<br>
 - `cat repoName.sh`
-  - verfiying what will be executed
+  - verifying what will be executed
 - `source repoName.sh && listRepos`
   - import file into the current bash shell environment & run
 
@@ -35,7 +35,7 @@ The zsh file `reposFiles.sh` has two parameters **[Github Username] [Repository 
 	alt="demo_gif"
   />
 </p>
-Friendly usage statment displayed when arguments are inadequate. 
+Friendly usage statement displayed when arguments are inadequate. 
 <p align="center">
   <img 
     src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3pvdzV6YW90b3ZoN200am5kMmcxeTBtbzVjbmhoZXk5bGdmcjF2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A3ocU9Y7H6bV8yMBrR/giphy.gif"
@@ -43,7 +43,7 @@ Friendly usage statment displayed when arguments are inadequate.
   />
 </p>
 
-#### Below is the entirity of the epoch 2 script
+#### Below is the entirety of the epoch 2 script
 
 ```shell
 #!/usr/bin/env zsh
@@ -68,9 +68,9 @@ curl -s "https://github.com/"$1"/"$2 |\
 
 ```
 
-#### When the awk command recives the raw HTML
+#### When the awk command receives the raw HTML
 <p>The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.</p>
-Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` repersents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br><br>
+Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` represents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br><br>
 Aside,`-F` flag for a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or closing of an HTML tag (greater than or less than sign). 
 
 
@@ -86,13 +86,13 @@ The block of HTML below is an example of a  successful match. A successful match
 ```
 ### Epoch 3 - Still under Construction... 
 #### Further Regex Experiments with Perl
-Given HTML structure, *most likely* any match with this pattern will occur within an achor tag. 
+Given HTML structure, *most likely* any match with this pattern will occur within an anchor tag. 
 
 ```html
 <a>  </a>
 ```
 
-The greater than (>) is explicitly matched for and the capture begins. Before the first and only capture groups starts consuming characters, the negated character class `[^>]*` and greedy modifier will consumer everything that is not a greater than sign.   <br>
+Regarding the Perl regex below, the greater than sign (>) is explicitly matched for and then capturing begins. Before the first capture groups starts consuming characters, the negated character class `[^>]` and it's greedy modifier `*` will consumer everything that is not a greater than sign.   <br>
 
 
 
@@ -101,7 +101,7 @@ $ curl -s "https://github.com/gramjos/tour_co" |
      perl -ne 'print "$1\n" 
         if /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/'
 ```
-*Example output from the the above command<br>*
+*Example output from the above command<br>*
 android<br>
 assets<br>
 ios<br>
@@ -121,4 +121,4 @@ pubspec.yaml<br>
 
 TODO
 - assemble magic links for download 
-- During a get file, scan current directory and check for conflict names before write (possibly over writting the downloaded file)
+- During a get file, scan current directory and check for conflict names before write (possibly over writing the downloaded file)
