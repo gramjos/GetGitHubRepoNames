@@ -29,7 +29,7 @@ getFileSelect(){
  menuHeader="Select a file to download or a path to explore add dir name"
  selected=$(echo $1 | tr ' ' '\n' |fzf --header $menuHeader)
  selErr=$?
- magicLink=$github$2"/"$selected
+ magicLink=$2"/"$selected
  echo "you selected "$selected  "here is the magic link "$magicLink
  [[ "$selErr" == 0 ]] && source ./downloadFile.sh $magicLink
 }
