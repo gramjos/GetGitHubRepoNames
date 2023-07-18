@@ -137,4 +137,16 @@ TODO
 
 - assemble magic links for download
 - During a get file, scan current directory and check for conflict names before write (possibly over writing the downloaded file)
-- user functionality idea, before jumping directly into each folder ask to explore.to sum up, fzf over the dolfer names before fzf over the folder's conetents. 
+- user functionality idea, before jumping directly into each folder ask to explore.to sum up, fzf over the folder names before fzf over the folder's contents. 
+envisioning potential usage<br>
+$  getgit [-r] [link_to_file|link_to_dir]
+Examples:
+$ getgit link_to_file
+...downloads file in current directory (checks not to overwrite first)
+
+$ getgit link_to_dir
+...downloads all files in dir and JUST THE NAMES of possible other direcries 
+
+$ getgit -r link_to_dir
+... recursively download all things
+
