@@ -13,7 +13,7 @@
 
 ### Motivation
 
-An edifying exploration of shell scripting because shell are omnipresent.
+An edifying exploration of shell scripting because shells are omnipresent.
 
 ### Epoch 1
 
@@ -76,8 +76,8 @@ curl -s "https://github.com/"$1"/"$2 |\
 
 #### When the awk command receives the raw HTML
 
-<p>The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.</p>
-Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` represents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br><br>
+The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.<br>
+Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` represents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
 Aside,`-F` flag for a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or closing of an HTML tag (greater than or less than sign).
 
 ```shell
@@ -95,7 +95,7 @@ The block of HTML below is an example of a successful match. A successful match 
 
 #### Further Regex Experiments with Perl
 
-Given HTML structure, _most likely_ any match with this field separator pattern will occur within an anchor tag.
+Given HTML structure, _most likely_ any match with this field separator pattern will occur within an anchor tag, (the inner HTML).
 
 ```html
 <a> </a>
@@ -109,7 +109,7 @@ $ curl -s "https://github.com/gramjos/tour_co" |
         if /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/'
 ```
 
-_Example output from the above command<br>_
+**_Example output from the above command_**<br>
 android<br>
 assets<br>
 ios<br>
@@ -128,10 +128,10 @@ pubspec.yaml<br>
 
 ### Notes on Github's backend file tree
 
-- tree and blob used inter-changably
+- tree and blob used inter-changably? not sure about the previous statement. `tree` is used at the repo level, then blob for anything below
   - https://github.com/gramjos/tour_co/`blob`/master/android/settings.gradle
   - https://github.com/gramjos/tour_co/`tree`/master/android/settings.gradle
-    <br> I have the above suspicion because both links seem to result in the same end point
+    <br> I have the above suspicion because both links seem to result in the same end point <- NO! 
 
 TODO
 
