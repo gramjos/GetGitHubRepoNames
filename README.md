@@ -13,7 +13,7 @@
 
 ### Motivation
 
-An edifying exploration of shell scripting because shells are omnipresent.
+An edifying exploration of shell (bash/zsh) scripting because shells are omnipresent.
 
 ### Epoch 1
 
@@ -73,12 +73,12 @@ curl -s "https://github.com/"$1"/"$2 |\
 	awk -F">|<" '$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
 
 ```
-
+### Finding the desired data from the `curl` output is the crux of the this problem...
 #### When the awk command receives the raw HTML
 
 The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.<br>
-Within the single quotes, in the command below, this sets up a regular expression that matches the pattern between the forward slashes. `$0` represents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
-Aside,`-F` flag for a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or closing of an HTML tag (greater than or less than sign).
+Within the single quotes, in the command below, sets up a regular expression that matches the pattern between the forward slashes. `$0` represents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
+The `-F` flag signifies a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or (|) closing of an HTML tag (greater than or less than sign).
 
 ```shell
 awk -F">|<" '$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
@@ -88,14 +88,14 @@ awk -F">|<" '$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
 The block of HTML below is an example of a successful match. A successful match outputs the entire line. The line is then delineated by the specified field separator. The fifth field contains the sought after data and denoted with `print $5`.
 
 ```shell
-<a class="js-navigation-open Link--primary" title="ABOUTS" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/ABOUTS">ABOUTS</a>
+<span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open Link--primary" title="ABOUTS" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/ABOUTS">ABOUTS</a></span>
 ```
 
 ### Epoch 3 - Still under Construction...
 
 #### Further Regex Experiments with Perl
 
-Given HTML structure, _most likely_ any match with this field separator pattern will occur within an anchor tag, (the inner HTML).
+Given HTML structure, _most likely_ any match with this field separator pattern will occur within any tag (the inner HTML).
 
 ```html
 <a> </a>
@@ -139,14 +139,14 @@ TODO
 - During a get file, scan current directory and check for conflict names before write (possibly over writing the downloaded file)
 - user functionality idea, before jumping directly into each folder ask to explore.to sum up, fzf over the folder names before fzf over the folder's contents. 
 envisioning potential usage<br>
-$  getgit [-r] [link_to_file|link_to_dir]
+<pre>$  getgit [-r] [link_to_file|link_to_dir]</pre>
 Examples:
-$ getgit link_to_file
+<pre>$ getgit link_to_file</pre>
 ...downloads file in current directory (checks not to overwrite first)
 
-$ getgit link_to_dir
+<pre>$ getgit link_to_dir</pre>
 ...downloads all files in dir and JUST THE NAMES of possible other direcries 
 
-$ getgit -r link_to_dir
+<pre>$ getgit -r link_to_dir</pre>
 ... recursively download all things
 

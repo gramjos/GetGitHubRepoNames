@@ -62,8 +62,8 @@ case "$#" in
   *) usage_statement "args"
   ;;
   esac 
-
-pattern='class="js-navigation-open Link--primary".* href="(\/'$gitUser'\/'$gitRepo'\/[^"]*)"[^>]*>([^<]*)(.*)'
+class='class="js-navigation-open Link--primary"'
+pattern=$class'.* href="(\/'$gitUser'\/'$gitRepo'\/[^"]*)"[^>]*>([^<]*)(.*)'
 export pattern
 for item in $(
 		curl -s $github"/"$gitUser"/"$gitRepo \
