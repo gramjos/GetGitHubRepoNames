@@ -102,7 +102,7 @@ A match with this field separator pattern, `
 -F">|<" 
 `
 <br>
- will occur within any tag (the inner HTML) as well as, the regions specified by `()` in he line below.
+ will occur within any tag (the inner HTML) as well as, the regions specified by `()` in the line below.
 
  ```html
  ()<(a)>(...)<(/a)>()
@@ -110,7 +110,26 @@ A match with this field separator pattern, `
 
 ### Epoch 3 - Still under Construction...
 #### Further Regex Experiments with Perl
-Regarding the Perl regex below, the greater than sign (>) is explicitly matched for and then capturing begins. Before the first capture groups starts consuming characters, the negated character class `[^>]` and it's greedy modifier `*` will consumer everything that is not a greater than sign. <br>
+Regarding the Perl regex below, <br>
+Aside, syntax requires it be wrapped in forwards slashes ex. `/pattern/`
+
+```shell
+$ perl -ne 'print "$1\n" if 
+    /class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)/' raw_html
+```
+
+<br>
+`class="js-navigation-open Link--primary"[^>]*>([^<]*)(.*)`
+<br>
+The beginning part of the regex is a literal character match and this part is shown below.
+<br>
+`class="js-navigation-open Link--primary"`
+<br>
+The other half contains the meta-characters which activates special functionality and this part is shown below.
+<br>
+`[^>]*>([^<]*)(.*)` 
+<br>
+ Capture groups are a way to select a specific part of a regular expression match. They are enclosed in parentheses and referenced by the `$n` notation, where `n` is the group number.  Before the first capture group, the negated character class `[^>]` and it's greedy modifier `*` will consume everything that is not a greater than sign. Then the greater than sign (>) is explicitly matched for and then capturing begins. <br>
 
 ```shell
 $ curl -s "https://github.com/gramjos/tour_co" |
