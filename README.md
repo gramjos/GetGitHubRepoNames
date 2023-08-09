@@ -2,13 +2,13 @@
 
 ## Scraping Github with Bash and Zsh
 
-### Table of Contents - Script Evolution
+### Repository Table of Contents - Script Evolution 
 
 | Epoch | File               |                  Purpose                  | Lines of Code |
 | :---: | ------------------ | :---------------------------------------: | :-----------: |
 |   1   | `listRepos.sh `    |   Get public repos from given username    |       8       |
 |   2   | `reposFiles.sh `   | List the contents of repos (1 level deep) |      15       |
-|   3   | `getTree.sh`       | Explore repo and download selected files  |      ~90      |
+|   3   | `getTree.sh`       | Explore repo and download selected files  |      ~80     |
 |  3.5  | `downloadFile.sh ` |      Helper function for getTrees.sh      |       5       |
 
 ### Motivation
@@ -78,7 +78,7 @@ curl -s "https://github.com/"$1"/"$2 |\
 
 The nature of `awk` is a line by line parser. So question becomes, what sequence of characters can be searched for that is uniquely shared between the desired lines. The desired lines have directory and file information that will be eventually printed to the screen.<br>
 Within the single quotes, in the command below, sets up a regular expression that matches the pattern between the forward slashes. `$0` represents the whole line and the tilde `~` operator specifies regular expression matching. So, one can wrap the previous two statements together by saying, as `awk` takes its line by line input, it is searching for the exact string `class="js-navigation-open Link--primary"` <br>
-The `-F` flag signifies a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or (|) closing of an HTML tag (greater than or less than sign).
+
 
 ```shell
 awk -F">|<" '$0 ~ /class="js-navigation-open Link--primary"/ {print $5}';
@@ -91,16 +91,25 @@ The block of HTML below is an example of a successful match. A successful match 
 <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open Link--primary" title="ABOUTS" data-turbo-frame="repo-content-turbo-frame" href="/gramjos/vopen/blob/master/ABOUTS">ABOUTS</a></span>
 ```
 
-### Epoch 3 - Still under Construction...
 
-#### Further Regex Experiments with Perl
+The `-F` flag signifies a field separator pattern. This specifies how a successful matched is segmented/grouped. In this scenario, specify, the opening or (|) closing of an HTML tag (greater than or less than sign).
 
-Given HTML structure, _most likely_ any match with this field separator pattern will occur within any tag (the inner HTML).
-
-```html
+Given HTML structure, `
 <a> </a>
-```
+`
+<br>
+A match with this field separator pattern, `
+-F">|<" 
+`
+<br>
+ will occur within any tag (the inner HTML) as well as, the regions specified by `()` in he line below.
 
+ ```html
+ ()<(a)>(...)<(/a)>()
+ ```
+
+### Epoch 3 - Still under Construction...
+#### Further Regex Experiments with Perl
 Regarding the Perl regex below, the greater than sign (>) is explicitly matched for and then capturing begins. Before the first capture groups starts consuming characters, the negated character class `[^>]` and it's greedy modifier `*` will consumer everything that is not a greater than sign. <br>
 
 ```shell
